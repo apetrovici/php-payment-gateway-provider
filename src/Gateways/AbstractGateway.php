@@ -18,6 +18,16 @@ use GlobalPayments\PaymentGatewayProvider\Handlers\HandlerInterface;
 abstract class AbstractGateway implements GatewayInterface
 {
     /**
+     * Defines production environment
+     */
+    const ENVIRONMENT_PRODUCTION = 'production';
+
+    /**
+     * Defines sandbox environment
+     */
+    const ENVIRONMENT_SANDBOX = 'sandbox';
+
+    /**
      * Gateway provider. Should be overriden by individual gateway implementations
      *
      * @var string
@@ -268,6 +278,7 @@ abstract class AbstractGateway implements GatewayInterface
             Requests\TransactionType::AUTHORIZE              => Requests\AuthorizationRequest::class,
             Requests\TransactionType::CREATE_MANIFEST        => Requests\CreateManifestRequest::class,
             Requests\TransactionType::CREATE_TRANSACTION_KEY => Requests\CreateTransactionKeyRequest::class,
+            Requests\TransactionType::GET_ACCESS_TOKEN       => Requests\GetAccessTokenRequest::class,
             Requests\TransactionType::REFUND                 => Requests\RefundRequest::class,
             Requests\TransactionType::REVERSAL               => Requests\ReversalRequest::class,
             Requests\TransactionType::SALE                   => Requests\SaleRequest::class,

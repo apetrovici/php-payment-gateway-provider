@@ -9,7 +9,7 @@
         }
     },
     "require": {
-        "globalpayments/php-sdk": "^2.2"
+        "globalpayments/php-sdk": "^2.2.14"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

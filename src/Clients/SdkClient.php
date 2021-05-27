@@ -11,8 +11,8 @@ use GlobalPayments\Api\Entities\Enums\GatewayProvider;
 use GlobalPayments\Api\Gateways\IPaymentGateway;
 use GlobalPayments\Api\PaymentMethods\CreditCardData;
 use GlobalPayments\Api\ServiceConfigs\AcceptorConfig;
-use GlobalPayments\Api\ServiceConfigs\Gateways\GatewayConfig;
 use GlobalPayments\Api\ServiceConfigs\Gateways\GeniusConfig;
+use GlobalPayments\Api\ServiceConfigs\Gateways\GpApiConfig;
 use GlobalPayments\Api\ServiceConfigs\Gateways\PorticoConfig;
 use GlobalPayments\Api\ServiceConfigs\Gateways\TransitConfig;
 use GlobalPayments\Api\Services\ReportingService;
@@ -53,6 +53,7 @@ class SdkClient implements ClientInterface
     protected $clientTransactions = array(
         TransactionType::CREATE_TRANSACTION_KEY,
         TransactionType::CREATE_MANIFEST,
+        TransactionType::GET_ACCESS_TOKEN,
     );
 
     /**
@@ -298,6 +299,8 @@ class SdkClient implements ClientInterface
             case GatewayProvider::GENIUS:
                 $gatewayConfig = new GeniusConfig();
                 break;
+            case GatewayProvider::GP_API:
+                $gatewayConfig = new GpApiConfig();
             default:
                 break;
         }

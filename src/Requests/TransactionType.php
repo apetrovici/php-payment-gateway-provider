@@ -21,4 +21,11 @@ abstract class TransactionType
 
     // report requests
     public const REPORT_TXN_DETAILS = 'transactionDetail';
+
+    // gp-api requests
+    public const GET_ACCESS_TOKEN = 'getAccessToken';
+
+    // 3DS requests
+    public const CHECK_ENROLLMENT        = 'checkEnrollment';
+    public const INITIATE_AUTHENTICATION = 'initiateAuthentication';
 }
